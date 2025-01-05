@@ -1,4 +1,6 @@
-﻿namespace Lekce11HW
+﻿using System.Text.Json;
+
+namespace Lekce11HW
 {
     internal class Program
     {
