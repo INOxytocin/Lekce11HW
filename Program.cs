@@ -37,14 +37,29 @@ namespace Lekce11HW
 
             //Vlastní JSON na Deserializaci
             Console.WriteLine("\n/////////////////////////////////////////\n");
-            
+
             List<string> jsonList = new List<string> { "{\"Name\":\"Some Random Item\",\"Price\":12345,\"Quantity\":5}" };
+
 
             catalog2.DeserializeJSONToProduct(jsonList);
             foreach (Product product in catalog2.Products)
             {
                 Console.WriteLine(product);
             }
+            Console.WriteLine("Exception test");
+            List<string> jsonList2 = new List<string> { "{\"Name\":\"Some Random Item\",\"Price\":12345,\"Quantity\":5" };
+            List<string> jsonList3 = new List<string> { "{\"Name\":\"Some Random Item\",\"Price\":-12345,\"Quantity\":5}" };
+
+            Console.WriteLine("First");
+            catalog2.DeserializeJSONToProduct(jsonList2);
+            Console.WriteLine("Second");
+            catalog2.DeserializeJSONToProduct(jsonList3);
+            foreach (Product product in catalog2.Products)
+            {
+                Console.WriteLine(product);
+            }
+            Console.WriteLine(catalog2.Count());
+
 
 
         }
